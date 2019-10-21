@@ -1,19 +1,14 @@
+set(VCPKG_LIBRARY_LINKAGE static)
 include(vcpkg_common_functions)
 
 vcpkg_check_linkage(ONLY_STATIC_LIBRARY)
 
 vcpkg_from_github(
   OUT_SOURCE_PATH SOURCE_PATH
-  REPO facebook/rocksdb
-  REF 2b38e2dd6602a17a2010308580fd5d8c91dea650
-  SHA512 82e9c2417bd0325b2402a64a56cfff25346e277a8174a33727517ada59502fee4bdeea40b0d20f9c6a86c52b66d57340b898096e39ad91bccc4f3a2245bd49b0
+  REPO KioxiaAmerica/trocksdb
+  REF 5aa30de524fdcf0ace1b0fb357c632eec6b71472
+  SHA512 6a9fc1b9d2e3aa74b943bc56bc8cf31c15ba1ef6c7a1113768bb95d384978894052a6217edec58ab33eafde79ca72e45a3ce687f24c74fa21a6f23b8898fd62d
   HEAD_REF master
-  PATCHES
-    0001-disable-gtest.patch
-    0002-only-build-one-flavor.patch
-    0003-zlib-findpackage.patch
-    0004-use-find-package.patch
-    0005-static-linking-in-linux.patch
 )
 
 file(REMOVE "${SOURCE_PATH}/cmake/modules/Findzlib.cmake")
